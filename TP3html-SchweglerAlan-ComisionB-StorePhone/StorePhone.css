@@ -1,0 +1,302 @@
+
+/* ESTILOS GENERALES */
+
+* { /* El selector universal (*) aplica estos estilos a TODOS los elementos de la página */
+    margin: 0; /* Elimina el margen exterior por defecto de los elementos */
+    padding: 0; /* Elimina el relleno interior por defecto de los elementos */
+    box-sizing: border-box; /* Cambia el modelo de caja para que el padding y border se incluyan en el ancho y alto total del elemento */
+}
+
+/* Body y fondo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define la fuente principal para todo el documento */
+    background-color: #121212; /* fondo gris oscuro */
+    color: #e0e0e0; /* Establece el color del texto a un blanco suave */
+    line-height: 1.5; /* Define la altura de línea para mejorar la legibilidad */
+}
+
+/* Scroll */
+html {
+    scroll-behavior: smooth; /* Hace que el desplazamiento al hacer clic en los enlaces del menú sea suave */
+}
+
+/* HEADER y NAVEGACION */
+
+header {
+    display: flex; /* Usa Flexbox para alinear los elementos hijos (h1 y nav) */
+    justify-content: space-between; /* Distribuye los elementos, uno al inicio y otro al final */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 20px 40px; /* Añade relleno interior (20px arriba/abajo, 40px izquierda/derecha) */
+    background-color: rgba(28, 28, 28, 0.8); /* Fondo semitransparente para el header */
+    position: sticky;          /* hace que acompañe al scrollear */
+    top: 0; /* Pega el header en la parte superior de la ventana al hacer scroll */
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque para el fondo del header */
+}
+
+header h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define una fuente específica para el título principal */
+    font-size: 50px; /* Establece el tamaño de la fuente del título */
+    color: #ffffff; /* Asegura que el color del texto del título sea blanco */
+}
+
+nav ul {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Usa Flexbox para alinear los elementos de la lista en una fila */
+    gap: 15px; /* Crea un espacio de 20px entre cada elemento de la lista */
+}
+
+nav ul li a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: #e0e0e0; /* Establece el color del texto de los enlaces */
+    font-weight: bold; /* Pone el texto en negrita */
+    padding: 12px 24px; /* Aumentamos el relleno para hacer los botones más grandes */
+    border-radius: 8px; /* Redondea las esquinas del "botón" */
+    border: 1px solid #555; /* Añadimos un borde para que el efecto de escala sea visible */
+    background-color: transparent; /* Color de fondo para los enlaces */
+    transition: transform 0.3s, color 0.3s, box-shadow 0.3s; /* Suaviza las transiciones de efectos */
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Cambia el color del texto al pasar el ratón por encima */
+    transform: scale(1.1); /* Agranda sutilmente el enlace al pasar el ratón */
+    border-color: #007bff; /* También cambiamos el color del borde al pasar el cursor */
+}
+
+
+/* SECCIONES */
+
+section {
+    padding: 60px 20px; /* Añade relleno a todas las secciones */
+    text-align: center; /* Centra el texto dentro de las secciones */
+}
+
+section h2 {
+    font-size: 36px; /* Tamaño de fuente para los títulos de sección */
+    margin-bottom: 20px; /* Espacio debajo de los títulos de sección */
+    color: #ffffff; /* Color del texto para los títulos */
+}
+
+section p {
+    margin-bottom: 30px; /* Espacio debajo de los párrafos */
+    color: #a0a0a0; /* Un color de texto ligeramente más oscuro para los párrafos */
+}
+
+
+/* ESPACIOS ENTRE SECCIONES */
+
+/* Ajuste para la primera sección para que no quede oculta debajo del header fijo */
+#Inicio { 
+    padding: 120px 20px 60px 20px; /* Relleno personalizado: más espacio arriba para compensar el header fijo */
+}
+
+/* Agrupamos selectores que comparten las mismas reglas para reducir duplicación */
+#Inicio h2, #Ofertas h2, #Contacto .caja-contacto h2 {
+    margin-bottom: 15px; /* Ajusta el margen inferior del título en la sección Inicio */
+}
+
+/* Hacemos lo mismo para los párrafos */
+#Inicio p, #Ofertas p {
+    margin-bottom: 30px; /* Ajusta el margen inferior del párrafo en la sección Inicio */
+}
+
+#Catalogo {
+    padding: 40px 20px; /* Relleno específico para la sección Catálogo */
+}
+
+#Catalogo .productos {
+    display: flex; /* Usa Flexbox para alinear las tarjetas de producto */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente línea si no caben */
+    gap: 30px; /* Espacio entre las tarjetas de producto */
+}
+
+
+/* IMÁGENES DE INICIO Y OFERTAS */
+
+#Inicio img, #Ofertas img {
+    width: 80%;        /* La imagen ocupa el 80% del ancho de su contenedor */
+    max-width: 600px;  /* Limita el ancho máximo de la imagen para que no sea demasiado grande */
+    height: auto;      /* Mantiene la proporción de la imagen al cambiar el ancho */
+    margin-top: 20px;  /* Espacio superior para separar la imagen del texto */
+    border-radius: 10px; /* Redondea las esquinas de la imagen */
+}
+
+
+/* CARDS DE PRODUCTOS */
+
+#Catalogo .producto {
+    background-color: #1c1c1c; /* Color de fondo para la tarjeta de producto */
+    padding: 20px; /* Relleno interior de la tarjeta */
+    border-radius: 15px; /* Redondea las esquinas de la tarjeta */    
+    /* Hacemos que cada producto ocupe un tercio del contenedor, restando el espacio del gap */
+    flex-basis: calc(33.333% - 20px);
+    transition: transform 0.3s; /* Transición suave para cualquier transformación (no se usa aquí, pero está lista) */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra sutil para dar profundidad */
+}
+
+/* IMÁGENES DE PRODUCTOS */
+#Catalogo .producto img {
+    width: 90%;          /* La imagen ocupa el 90% del ancho de la tarjeta */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Redondea las esquinas de la imagen del producto */
+    transition: transform 0.3s; /* transición suave */
+}
+
+/* Hover sobre la imagen: agrandar más */
+#Catalogo .producto:hover img {
+    transform: scale(1.4); /* Agranda la imagen al pasar el ratón sobre la tarjeta */
+}
+
+/* Botón link externo (Mercado Libre) */
+.btn-ml {
+    display: inline-block; /* Permite aplicar ancho, alto, padding, etc., pero se mantiene en línea */
+    padding: 12px 25px; /* Relleno para que parezca un botón */
+    margin-top: 15px; /* Espacio por encima del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    font-weight: bold; /* Texto en negrita */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    border-radius: 10px; /* Redondea las esquinas del botón */
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza los efectos al pasar el ratón */
+}
+
+.btn-ml:hover {
+    transform: scale(1.05); /* Agranda ligeramente el botón al pasar el ratón */
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Añade un resplandor al botón */
+}
+
+
+/* SECCIÓN CONTACTO COMPLETA */
+
+#Contacto {
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente el contenedor del formulario */
+    padding: 60px 20px; /* Relleno de la sección */
+}
+
+#Contacto .caja-contacto {
+    background-color: #1c1c1c; /* Color de fondo para la caja de contacto */
+    padding: 40px; /* Relleno interior de la caja */
+    border-radius: 20px; /* Redondea las esquinas de la caja */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 600px; /* Limita el ancho máximo de la caja */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Efecto de resplandor múltiple */
+    text-align: center; /* Centra el texto dentro de la caja */
+}
+
+#Contacto .caja-contacto p {
+    margin-bottom: 30px; /* Espacio debajo del párrafo de contacto */
+    color: #a0a0a0; /* Color del texto del párrafo */
+}
+
+#Contacto form {
+    display: flex; /* Usa Flexbox para el formulario */
+    flex-direction: column; /* Apila los elementos del formulario verticalmente */
+    align-items: center; /* Centra los elementos del formulario horizontalmente */
+}
+
+form label {
+    display: block; /* Hace que la etiqueta ocupe su propia línea */
+    width: 100%; /* La etiqueta ocupa todo el ancho del formulario */
+    text-align: left; /* Alinea el texto de la etiqueta a la izquierda */
+    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
+    color: #ffffff; /* Color del texto de la etiqueta */
+}
+
+form input {
+    width: 90%; /* Ancho del campo de entrada */
+    padding: 10px; /* Relleno interior del campo de entrada */
+    margin-bottom: 15px; /* Espacio debajo del campo de entrada */
+    border: none; /* Quita el borde por defecto */
+    background-color: #333; /* Fondo del input */
+    color: #e0e0e0; /* Color del texto del input */
+    border-radius: 5px; /* Redondea las esquinas del campo de entrada */
+}
+
+form button {
+    padding: 12px 25px; /* Relleno del botón de envío */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    border-radius: 8px; /* Redondea las esquinas del botón */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Suaviza los efectos al pasar el ratón */
+}
+
+form button:hover {
+    transform: scale(1.05); /* Agranda el botón al pasar el ratón */
+    background-color: #0056b3; /* Oscurece el botón al pasar el ratón */
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Añade un resplandor al botón */
+}
+
+
+/* FOOTER */                   
+
+footer {
+    background-color: #1c1c1c; /* Color de fondo del pie de página, igual que el header */
+    padding: 20px; /* Relleno del pie de página */
+    text-align: center; /* Centra el texto del pie de página */
+    color: #ffffff; /* Color del texto del pie de página */
+    margin-top: 50px; /* Espacio por encima del pie de página */
+}
+
+
+/* ESTILOS RESPONSIVE */
+
+/* Para tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column; /* Apila el logo y la navegación verticalmente */
+        align-items: center; /* Centra los elementos del header */
+        padding: 20px; /* Ajusta el padding */
+        gap: 15px; /* Añade espacio entre el logo y la navegación */
+    }
+
+    nav ul {
+        flex-direction: column; /* Apila los enlaces de navegación */
+        gap: 10px; /* Reduce el espacio entre enlaces */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        align-items: center; /* Centra los enlaces */
+    }
+
+    /* En tablets, los productos se mostrarán en 2 columnas */
+    #Catalogo .producto {
+        flex-basis: calc(50% - 15px); /* 50% para dos columnas, ajustando por el gap */
+        width: auto; /* Reseteamos el width para que flex-basis tome control */
+    }
+}
+
+/* Para móviles y pantallas pequeñas */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 32px; /* Reduce el tamaño del título principal */
+        text-align: center; /* Asegura que el título esté centrado */
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    section {
+        padding: 40px 15px; /* Reduce el padding de todas las secciones */
+    }
+
+    /* En móviles, los productos ocupan casi todo el ancho (1 columna) */
+    #Catalogo .producto {
+        flex-basis: 90%; /* Ocupa el 90% del ancho */
+        width: 90%; /* Aseguramos el ancho */
+    }
+
+    form input {
+        width: 100%; /* Los inputs del formulario ocupan todo el ancho */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    form button {
+        width: 100%; /* El botón de envío ocupa todo el ancho */
+    }
+}
